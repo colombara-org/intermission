@@ -18,9 +18,14 @@
                 const sidebarContainer = document.getElementById('sidebar-container');
                 if (sidebarContainer) {
                     sidebarContainer.innerHTML = html;
-                    
+
                     // Re-initialize the sidebar functionality from main.js
                     reinitializeSidebar();
+
+                    // Wire up the theme toggle button now that it exists in the DOM
+                    if (typeof window.initThemeToggleButton === 'function') {
+                        window.initThemeToggleButton();
+                    }
                 }
             })
             .catch(error => {
